@@ -2,7 +2,9 @@ require_relative "../lib/bowling"
 
 RSpec.describe Bowling do
   it "can score a gutter game" do
-    bowling = Bowling.new
-    10.times { bowling.roll(0) }
+    game = Bowling.new
+    20.times { game.roll(0) }
+
+    expect(game.score).to eq 0
   end
 end
