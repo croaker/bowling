@@ -14,7 +14,7 @@ class Bowling
     roll_index = 0
 
     @rolls.each_slice(2) do |frame|
-      if frame[0] + frame[1] == 10 # a spare
+      if spare?(frame)
         score += 10 + @rolls[roll_index + 2]
       else
         score += frame[0] + frame[1]
@@ -24,5 +24,9 @@ class Bowling
     end
 
     score
+  end
+
+  def spare?(frame)
+    frame[0] + frame[1] == 10
   end
 end

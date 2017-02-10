@@ -7,6 +7,11 @@ RSpec.describe Bowling do
     count.times { game.roll(pins) }
   end
 
+  def roll_spare
+    game.roll(5)
+    game.roll(5)
+  end
+
   it "can score a gutter game" do
     roll_many(20, 0)
 
@@ -20,8 +25,7 @@ RSpec.describe Bowling do
   end
 
   it "can score one spare" do
-    game.roll(5)
-    game.roll(5) # Yay, a spare!
+    roll_spare
     game.roll(3)
     roll_many(17, 0)
 
