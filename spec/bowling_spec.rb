@@ -19,12 +19,12 @@ RSpec.describe Bowling do
     expect(game.score).to eq 20
   end
 
-  # it "can score one spare" do
-  #   game.roll(5)
-  #   game.roll(5) # Yay, a spare!
-  #   game.roll(3)
-  #   roll_many(17, 0)
+  it "can score one spare" do
+    game.roll(5)
+    game.roll(5) # Yay, a spare!
+    game.roll(3)
+    roll_many(17, 0)
 
-  #   expect(game.score).to eq 16
-  # end
+    expect(game.score).to eq 16
+  end
 end

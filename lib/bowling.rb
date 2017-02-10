@@ -10,6 +10,19 @@ class Bowling
   end
 
   def score
-    @rolls.inject(:+)
+    score = 0
+    roll_index = 0
+
+    @rolls.each_slice(2) do |frame|
+      if frame[0] + frame[1] == 10 # a spare
+        score += 10 + @rolls[roll_index + 2]
+      else
+        score += frame[0] + frame[1]
+      end
+
+      roll_index += 2
+    end
+
+    score
   end
 end
