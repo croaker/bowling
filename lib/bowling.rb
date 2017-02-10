@@ -17,7 +17,7 @@ class Bowling
       if spare?(frame)
         score += 10 + @rolls[roll_index + 2]
       else
-        score += frame[0] + frame[1]
+        score += frame[0].to_i + frame[1].to_i
       end
 
       roll_index += 2
@@ -27,6 +27,6 @@ class Bowling
   end
 
   def spare?(frame)
-    frame[0] + frame[1] == 10
+    frame[0].to_i + frame[1].to_i == 10
   end
 end
