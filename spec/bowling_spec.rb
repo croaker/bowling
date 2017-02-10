@@ -7,4 +7,11 @@ RSpec.describe Bowling do
 
     expect(game.score).to eq 0
   end
+
+  it "correctly scores an all 1s game" do
+    game = Bowling.new
+    20.times { game.roll(1) }
+
+    expect(game.score).to eq 20
+  end
 end
