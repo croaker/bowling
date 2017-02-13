@@ -9,20 +9,22 @@ class Bowling
     @rolls << pins
   end
 
-  def score(roll_index = 0, frame = 1)
-    return 0 if frame > 10
+  def score
+    roll_index = 0
 
-    if strike?(roll_index)
-      score(roll_index + 1, frame + 1) +
-        10 +
-        strike_bonus(roll_index)
-    elsif spare?(roll_index)
-      score(roll_index + 2, frame + 1) +
-        10 +
-        spare_bonus(roll_index)
-    else
-      score(roll_index + 2, frame + 1) +
-        sum_rolls_in_frame(roll_index)
+    (1..10).reduce(0) do |score, frame|
+      if strike?(roll_index)
+        score = score + 10 + strike_bonus(roll_index)
+        roll_index += 1
+      elsif spare?(roll_index)
+        score = score + 10 + spare_bonus(roll_index)
+        roll_index += 2
+      else
+        score = score + sum_rolls_in_frame(roll_index)
+        roll_index += 2
+      end
+
+      score
     end
   end
 
